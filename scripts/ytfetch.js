@@ -1,11 +1,12 @@
 const apikey = 'AIzaSyBDOgStTqnuwvgK6_GkxD_CCd00ymR2X2A';
 
-function ytFetch(query, done) {
+function ytFetch(query, results, done) {
 	$.ajax({
 		url: 'https://www.googleapis.com/youtube/v3/search',
 		data: {
 			part: 'snippet',
 			key: apikey,
+			maxResults: results,
 			q: query
 		}
 	})
@@ -14,7 +15,19 @@ function ytFetch(query, done) {
 }
 
 function updateYtFetchResults(data) {
-	
+	const list = $('#tftube-results > ul');
+	list.empty();
+	for(let i of data.items) {
+		list.append('<li></li>');
+		const item = list.find('li').last();
+		item.attr('ytfetch-url', `https://www.youtube.com/watch?v=${i.id.videoId}`);
+		item.append(`
+			<img class="tftube-video-thumbnail" src="${i.snippet.thumbnails.default.url}"/>
+			<div>
+				<span class="tftube-video-title">${i.snippet.title}</span>
+				<p class="tftube-video-description">${i.snippet.description ? i.snippet.description : "No description available."}</p>
+			</div>`);
+	}
 }
 
 function handleYtFetchControls() {
@@ -22,7 +35,11 @@ function handleYtFetchControls() {
 		evt.preventDefault();
 		const query = $('#tftube-search-query').val();
 		if(query)
-			ytFetch(query, updateYtFetchResults);
+			ytFetch(query, 10, updateYtFetchResults);
+	});
+	$('#tftube-results').on('click', '.tftube-video-thumbnail', function(evt) {
+		evt.preventDefault();
+		window.open($(this).closest('li').attr('ytfetch-url'), '_blank');
 	});
 }
 
