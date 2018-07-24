@@ -39,9 +39,15 @@ input, button {
 
 #tftube-results > ul > li {
 	display: flex;
-	border: 1px white solid;
+	border: 2px white solid;
 	padding: 1em;
 	margin: 1em 0;
+}
+
+#tftube-results > ul > li > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 .tftube-video-thumbnail {
@@ -51,8 +57,6 @@ input, button {
 }
 
 .tftube-video-title {
-	display: block;
 	font-weight: bold;
 	font-size: 110%;
-	margin-bottom: 2em;
 }
