@@ -3,12 +3,17 @@
 	padding: 0;
 	border: 0;
 	font: inherit;
+	box-sizing: border-box;
+}
+
+ol, ul {
+	list-style: none;
 }
 
 body {
 	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 	background-color: #222;
-	color: #FFF;
+	color: white;
 	
 	display: flex;
 	flex-direction: column;
@@ -18,9 +23,35 @@ body {
 main {
 	max-width: 900px;
 	padding-top: 4em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 input, button {
 	border: 1px black solid;
 	padding: .5em;
+}
+
+#tftube-results {
+	padding: 1em;
+}
+
+#tftube-results > ul > li {
+	display: flex;
+	border: 1px white solid;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+.tftube-video-thumbnail {
+	margin-right: 1em;
+	cursor: pointer;
+}
+
+.tftube-video-title {
+	display: block;
+	font-weight: bold;
+	font-size: 110%;
+	margin-bottom: 2em;
 }
