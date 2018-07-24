@@ -18,6 +18,8 @@ function updateYtFetchResults(data) {
 	const list = $('#tftube-results > ul');
 	list.empty();
 	for(let i of data.items) {
+		if(i.id.kind !== 'youtube#video')
+			continue;
 		list.append('<li></li>');
 		const item = list.find('li').last();
 		item.attr('ytfetch-url', `https://www.youtube.com/watch?v=${i.id.videoId}`);
