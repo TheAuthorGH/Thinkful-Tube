@@ -20,7 +20,9 @@ function updateYtFetchResults(data) {
 function handleYtFetchControls() {
 	$('#tftube-search').submit(function(evt) {
 		evt.preventDefault();
-		ytFetch($('#tftube-search-query').val(), updateYtFetchResults);
+		const query = $('#tftube-search-query').val();
+		if(query)
+			ytFetch(query, updateYtFetchResults);
 	});
 }
 
