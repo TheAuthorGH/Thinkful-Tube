@@ -20,6 +20,12 @@ body {
 	align-items: center;
 }
 
+h1 {
+	font-weight: bold;
+	font-size: 170%;
+	margin-bottom: 1em;
+}
+
 main {
 	max-width: 900px;
 	padding-top: 4em;
