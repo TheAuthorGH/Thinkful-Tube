@@ -15,6 +15,7 @@ function ytFetch(query, results, done) {
 }
 
 function updateYtFetchResults(data) {
+	$('#tftube-results').prop('hidden', true);
 	const list = $('#tftube-results > ul');
 	list.empty();
 	for(let i of data.items) {
@@ -27,9 +28,11 @@ function updateYtFetchResults(data) {
 			<img class="tftube-video-thumbnail" src="${i.snippet.thumbnails.default.url}" alt="Video Thumbnail"/>
 			<div>
 				<span class="tftube-video-title">${i.snippet.title}</span>
+				<a href="${item.attr('ytfetch-url')}" target="_blank">Watch on YouTube</a>
 				<p class="tftube-video-description">${i.snippet.description ? i.snippet.description : "No description available."}</p>
 			</div>`);
 	}
+	$('#tftube-results').prop('hidden', false);
 }
 
 function handleYtFetchControls() {

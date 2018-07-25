@@ -26,6 +26,18 @@ h1 {
 	margin-bottom: 1em;
 }
 
+a {
+	color: #AAF;
+}
+
+a:visited {
+	color: #FAF;
+}
+
+a:focus, a:hover {
+	color: #FFF;
+}
+
 main {
 	max-width: 900px;
 	padding-top: 4em;
