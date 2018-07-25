@@ -24,7 +24,7 @@ function updateYtFetchResults(data) {
 		const item = list.find('li').last();
 		item.attr('ytfetch-url', `https://www.youtube.com/watch?v=${i.id.videoId}`);
 		item.append(`
-			<img class="tftube-video-thumbnail" src="${i.snippet.thumbnails.default.url}"/>
+			<img class="tftube-video-thumbnail" src="${i.snippet.thumbnails.default.url}" alt="Video Thumbnail"/>
 			<div>
 				<span class="tftube-video-title">${i.snippet.title}</span>
 				<p class="tftube-video-description">${i.snippet.description ? i.snippet.description : "No description available."}</p>
